@@ -1,0 +1,10 @@
+{
+    "schema": "technocore-contribution-proof-v2",
+    "artifact_url": "https://github.com/jahadal121212-beep/token-launch-radar",
+    "commit": "ad884eaf7cdd6fb1ce6a105abe7ec48a26bd8c19",
+    "did": "did:key:z6MkenhMYW37Kn18QMZdh2B5M3NLhi7LaSQKkQ5FZNw6Y3D6",
+    "issued_at": 1795537949,
+    "expires_at": 1803313949,
+    "nonce": "078d1c95d0c56389a66abe4dd2fbb7ee",
+    "signature": "oCUp9VT-ZOuTCaKvFKfIoF-exOpvCt53zYs0mukPNc0KNgKTQkQ4tDV3Wulale2FU8wJ7-l_vmW40ZWqL9JUCg"
+}
