@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Token Radar</h1>
+    <p class="sub" id="subtitle">Pre-token protocols, ranked by what a launch would be worth.</p>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<section class="panel" id="model-panel" aria-label="The model">
+  <h2>How the value is worked out <span class="tag">model radar-2</span></h2>
+  <p id="model-text"></p>
+  <div class="sandbox" id="sandbox">
+    <span class="sandbox-title">Try it yourself — move a weight and watch the board re-rank:</span>
+    <label>Value scale <input type="range" id="sb-scale" min="0.5" max="2" step="0.05" value="1"><b id="sb-scale-v">1.00&times;</b></label>
+    <label>Growth weight <input type="range" id="sb-growth" min="0" max="1" step="0.05" value="0.4"><b id="sb-growth-v">0.40</b></label>
+    <label>Maturity weight <input type="range" id="sb-mat" min="0" max="1" step="0.05" value="1"><b id="sb-mat-v">1.00</b></label>
+    <button id="sb-reset" type="button">Reset</button>
+    <span class="sandbox-badge" id="sb-badge" hidden>sandbox on — values recomputed live</span>
+  </div>
+</section>
+
+<section class="panel" aria-label="The board">
+  <div class="tabs" role="tablist">
+    <button type="button" id="tab-board" class="active" role="tab">Pre-token board</button>
+    <button type="button" id="tab-live" role="tab">Already trading</button>
+  </div>
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search name or slug" aria-label="Search name or slug">
+    <select id="cat" aria-label="Filter by category"></select>
+    <select id="chain" aria-label="Filter by chain"></select>
+    <label class="check"><input type="checkbox" id="watch"> Watchlist only</label>
+    <select id="sort" aria-label="Sort the board">
+      <option value="rank">Sort: rank</option>
+      <option value="implied">Sort: implied value</option>
+      <option value="tvl">Sort: TVL</option>
+      <option value="change">Sort: 7-day change</option>
+      <option value="age">Sort: age</option>
+      <option value="confidence">Sort: confidence</option>
+    </select>
+  </div>
+  <div class="chart" id="topchart" aria-label="Top ten by implied value"></div>
+  <div class="tablewrap">
+    <table id="board">
+      <thead><tr>
+        <th data-k="rank">#</th><th data-k="name">Protocol</th><th data-k="category">Category</th>
+        <th data-k="chains">Chains</th><th data-k="tvl">TVL</th><th data-k="change">7d</th>
+        <th data-k="age">Age</th><th data-k="implied">Implied value</th><th data-k="confidence">Confidence</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="count" id="count"></p>
+  <div id="livetable" hidden></div>
+</section>
+
+<section class="panel" id="detail" aria-label="Protocol detail">
+  <p class="muted">Click a row to see its model breakdown, its comparable protocols and its farm plan.</p>
+</section>
+
+<footer class="panel" id="method" aria-label="Method and notes"></footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
